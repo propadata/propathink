@@ -2,6 +2,9 @@
 
 // const Path = require('path');
 
+const Console = require('better-console');
+const Rethinkdb = require('rethinkdb');
+
 exports.register = (plugin, options, next) => {
 
     console.log('       register.attributes *****: ' + this.register.attributes.database);
@@ -11,16 +14,26 @@ exports.register = (plugin, options, next) => {
             name: 'testOne',
             handler: function (param, callback) {
 
-                console.log('testOne executed: ' + param);
+                console.log('       testOne executed: ' + param);
+                Console.info('       testOne this.connection ' + Object.keys(this.connection));
                 // console.log('     - connection ' + this.connection);
-                return callback(null, '     success: ' + param);
+
+                // this.connection automatically set in function context.
+                // @todo build request lifecycle to requests being built.
+
+                Rethinkdb.dbCreate(this._connection.db).run(this.connection, (err, result) => {
+
+                    Console.info('      result: ' + err + ' ' + result);
+                    return callback(err, '     success: ' + result);
+                });
+                // make rethinkdb request
             }
         },
         {
             name: 'testTwo',
             handler: function (param, callback) {
 
-                console.log('     testTwo executed: ' + param);
+                console.log('       testTwo executed: ' + param);
                 return param;
             }
         }

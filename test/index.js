@@ -31,12 +31,12 @@ describe('Propathink start', () => {
 
 internals.manifest = {
     connection: {
-        name: 'rethinkitize',
+        db: 'rethinkitize',
         type: 'rethinkdb',
         host: 'localhost',
         port: 28015,
-        user: 'waka',
-        pw: 'wakatime',
+        user: 'admin',
+        password: '',
         live: false,
         registrations: [
             {
