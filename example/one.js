@@ -16,8 +16,8 @@ exports.register = (plugin, options, next) => {
 
                 // console.log('       testOne executed: ' + param);
                 Console.info('       ##### step2Fn executed');
-                // Console.info('       testOne this.connection ' + Object.keys(this.connection));
-                // console.log('     - connection ' + this.connection);
+                Console.info('       testOne this.connection ' + Object.keys(this.connection));
+                Console.info('       - connection ' + Object.keys(this.requests));
 
                 Rethinkdb.dbCreate(this._connection.db).run(this.connection, (err, result) => {
 
