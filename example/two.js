@@ -14,10 +14,7 @@ exports.register = (plugin, options, next) => {
             name: 'goOne',
             handler: function (param, callback) {
 
-                // console.log('       testOne executed: ' + param);
                 Console.info('       ##### step2Fn executed');
-                // Console.info('       testOne this.connection ' + Object.keys(this.connection));
-                // console.log('     - connection ' + this.connection);
 
                 Rethinkdb.dbCreate('goDatabase').run(this.connection, (err, result) => {
 
