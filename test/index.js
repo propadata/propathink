@@ -30,6 +30,7 @@ describe('Propathink start', () => {
 });
 
 internals.manifest = {
+
     connection: {
         db: 'rethinkitize',
         type: 'rethinkdb',
@@ -42,9 +43,14 @@ internals.manifest = {
             {
                 plugin: '../example/one.js',
                 options: null
+            },
+            {
+                plugin: '../example/two.js',
+                options: null
             }
         ]
     },
+
     compositionOptions: {
         relativeTo: __dirname
     }

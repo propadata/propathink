@@ -11,7 +11,7 @@ exports.register = (plugin, options, next) => {
 
     plugin.request([
         {
-            name: 'testOne',
+            name: 'goOne',
             handler: function (param, callback) {
 
                 // console.log('       testOne executed: ' + param);
@@ -19,23 +19,22 @@ exports.register = (plugin, options, next) => {
                 // Console.info('       testOne this.connection ' + Object.keys(this.connection));
                 // console.log('     - connection ' + this.connection);
 
-                Rethinkdb.dbCreate(this._connection.db).run(this.connection, (err, result) => {
+                Rethinkdb.dbCreate('goDatabase').run(this.connection, (err, result) => {
 
                     Console.info('      result: ' + err + ' ' + result);
                     return callback(err, '     success: ' + result);
                 });
-                // make rethinkdb request
             },
-            comment: 'testOne documentation here.'
+            comment: 'goOne documentation here.'
         },
         {
-            name: 'testTwo',
+            name: 'goTwo',
             handler: function (param, callback) {
 
                 console.log('       testTwo executed: ' + param);
                 return param;
             },
-            comment: 'testTwo documentation here.'
+            comment: 'goTwo documentation here.'
         }
     ]);
 
@@ -44,5 +43,5 @@ exports.register = (plugin, options, next) => {
 
 exports.register.attributes = {
     database: 'rethinkitize', // database name plugin belongs to.
-    name: 'One'
+    name: 'Go'
 };
