@@ -17,7 +17,7 @@ exports.register = (plugin, options) => {
 
                 Console.info('       ##### step2Fn executed');
 
-                Rethinkdb.dbCreate(this._connection.db).run(this.connection, (err, result) => {
+                Rethinkdb.dbCreate(this._connection.db).run(this.conn, (err, result) => {
 
                     Console.info('      result: ' + err + ' ' + result);
                     return callback(err, '     success: ' + result);
@@ -30,7 +30,7 @@ exports.register = (plugin, options) => {
             handler: function (param, callback) {
 
                 console.log('       hurray!!! testTwo executed: ' + param);
-                return param;
+                return callback(null, param);
             }
         }
     ]);

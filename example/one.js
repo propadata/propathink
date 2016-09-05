@@ -15,11 +15,11 @@ exports.register = (plugin, options) => {
             handler: function (param, callback) {
 
                 // console.log('       testOne executed: ' + param);
-                Console.info('       ##### step2Fn executed');
-                Console.info('       testOne this.connection ' + Object.keys(this.connection));
+                Console.info('       ##### testOne executed');
+                Console.info('       testOne this.connection ' + Object.keys(this.conn));
                 Console.info('       - connection ' + Object.keys(this.requests));
 
-                Rethinkdb.dbCreate(this._connection.db).run(this.connection, (err, result) => {
+                return Rethinkdb.dbCreate(this._connection.db).run(this.conn, (err, result) => {
 
                     Console.info('      result: ' + err + ' ' + result);
                     return callback(err, '     success: ' + result);
@@ -32,7 +32,7 @@ exports.register = (plugin, options) => {
             handler: function (param, callback) {
 
                 // console.log('       hurray!!! testTwo executed: ' + param);
-                return param;
+                return callback(null, param);
             },
             comment: 'testTwo documentation here.'
         }

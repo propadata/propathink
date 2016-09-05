@@ -21,21 +21,34 @@ describe('Propathink start', () => {
 
         const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
 
-
-
         expect(rethink.connect).to.exist();
         const pathTarget = rethink.options.relativeTo.split('/');
         expect(pathTarget[pathTarget.length - 1]).to.equal('test');
         expect(pathTarget[pathTarget.length - 2]).to.equal('propathink');
 
         console.log('END test keys ' + Object.keys(rethink.requests.Go));
-        rethink.requests.Go.goTwo('goTwo', (err, result) => {
+        return rethink.requests.Go.goTwo('goTwo', (err, result) => {
 
             console.log('       ***** err:' + err + ' result: ' + result);
             return done();
         });
+    });
 
-        done();
+    it('connect2', (done) => {
+
+        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
+
+        expect(rethink.connect).to.exist();
+        const pathTarget = rethink.options.relativeTo.split('/');
+        expect(pathTarget[pathTarget.length - 1]).to.equal('test');
+        expect(pathTarget[pathTarget.length - 2]).to.equal('propathink');
+
+        console.log('END test keys ' + Object.keys(rethink.requests.One));
+        return rethink.requests.One.testOne('testOne', (err, result) => {
+
+            console.log('       ***** err:' + err + ' result: ' + result);
+            return done();
+        });
     });
 });
 
