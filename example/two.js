@@ -5,33 +5,33 @@
 const Console = require('better-console');
 const Rethinkdb = require('rethinkdb');
 
-exports.register = (plugin, options, next) => {
+exports.register = (plugin, options) => {
 
     console.log('       register.attributes *****: ' + this.register.attributes.database);
 
     plugin.request([
         {
             name: 'goOne',
+            comment: 'goOne documentation here.',
             handler: function (param, callback) {
 
                 Console.info('       ##### step2Fn executed');
 
-                Rethinkdb.dbCreate('goDatabase').run(this.connection, (err, result) => {
+                Rethinkdb.dbCreate(this._connection.db).run(this.connection, (err, result) => {
 
                     Console.info('      result: ' + err + ' ' + result);
                     return callback(err, '     success: ' + result);
                 });
-            },
-            comment: 'goOne documentation here.'
+            }
         },
         {
             name: 'goTwo',
+            comment: 'goTwo documentation here.',
             handler: function (param, callback) {
 
-                console.log('       testTwo executed: ' + param);
+                console.log('       hurray!!! testTwo executed: ' + param);
                 return param;
-            },
-            comment: 'goTwo documentation here.'
+            }
         }
     ]);
 

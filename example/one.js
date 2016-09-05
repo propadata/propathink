@@ -5,7 +5,7 @@
 const Console = require('better-console');
 const Rethinkdb = require('rethinkdb');
 
-exports.register = (plugin, options, next) => {
+exports.register = (plugin, options) => {
 
     console.log('       register.attributes *****: ' + this.register.attributes.database);
 
@@ -24,7 +24,6 @@ exports.register = (plugin, options, next) => {
                     Console.info('      result: ' + err + ' ' + result);
                     return callback(err, '     success: ' + result);
                 });
-                // make rethinkdb request
             },
             comment: 'testOne documentation here.'
         },
@@ -32,7 +31,7 @@ exports.register = (plugin, options, next) => {
             name: 'testTwo',
             handler: function (param, callback) {
 
-                console.log('       testTwo executed: ' + param);
+                // console.log('       hurray!!! testTwo executed: ' + param);
                 return param;
             },
             comment: 'testTwo documentation here.'

@@ -28,11 +28,14 @@ describe('Propathink start', () => {
         expect(pathTarget[pathTarget.length - 1]).to.equal('test');
         expect(pathTarget[pathTarget.length - 2]).to.equal('propathink');
 
-        rethink.requests.One.testOne('boom', (err, result) => {
+        console.log('END test keys ' + Object.keys(rethink.requests.Go));
+        rethink.requests.Go.goTwo('goTwo', (err, result) => {
 
             console.log('       ***** err:' + err + ' result: ' + result);
             return done();
         });
+
+        done();
     });
 });
 
