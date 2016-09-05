@@ -15,8 +15,7 @@ exports.register = (plugin, options) => {
             comment: 'goOne documentation here.',
             handler: function (param, callback) {
 
-                Console.info('       ##### step2Fn executed');
-
+                Console.info('       ##### goOne executed');
                 Rethinkdb.dbCreate(this._connection.db).run(this.conn, (err, result) => {
 
                     Console.info('      result: ' + err + ' ' + result);

@@ -7,8 +7,6 @@ const Rethinkdb = require('rethinkdb');
 
 exports.register = (plugin, options) => {
 
-    console.log('       register.attributes *****: ' + this.register.attributes.database);
-
     plugin.request([
         {
             name: 'testOne',
@@ -21,7 +19,7 @@ exports.register = (plugin, options) => {
 
                 return Rethinkdb.dbCreate(this._connection.db).run(this.conn, (err, result) => {
 
-                    Console.info('      result: ' + err + ' ' + result);
+                    Console.info('      testOne result: ' + err + ' ' + result);
                     return callback(err, '     success: ' + result);
                 });
             },
