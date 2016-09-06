@@ -4,35 +4,43 @@
 
 const Console = require('better-console');
 const Rethinkdb = require('rethinkdb');
+const Joi = require('joi');
 
 exports.register = (plugin, options) => {
 
     plugin.request([
         {
             name: 'testOne',
-            handler: function (param, callback) {
+            comment: 'testOne documentation here.',
+            handler: function (param, next, callback) {
 
                 // console.log('       testOne executed: ' + param);
                 Console.info('       ##### testOne executed');
-                Console.info('       testOne this.connection ' + Object.keys(this.conn));
-                Console.info('       - connection ' + Object.keys(this.requests));
+                // Console.info('       testOne this.connection ' + Object.keys(this.conn));
+                // Console.info('       - connection ' + Object.keys(this.requests));
+                // Console.info('       - next ' + next);
 
                 return Rethinkdb.dbCreate(this._connection.db).run(this.conn, (err, result) => {
 
                     Console.info('      testOne result: ' + err + ' ' + result);
-                    return callback(err, '     success: ' + result);
+                    return callback(err, '     success: ' + result, next);
                 });
-            },
-            comment: 'testOne documentation here.'
+            }
         },
         {
             name: 'testTwo',
-            handler: function (param, callback) {
+            comment: 'testTwo documentation here.',
+            validate: {
+                0: { // parameter at arguments[0] to be validated.
+                    username: Joi.string().min(3).max(6),
+                    password: Joi.string().min(3).max(8)
+                }
+            },
+            handler: function (user, next, callback) {
 
                 // console.log('       hurray!!! testTwo executed: ' + param);
-                return callback(null, param);
-            },
-            comment: 'testTwo documentation here.'
+                return callback(null, 'test two result', next);
+            }
         }
     ]);
 

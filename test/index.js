@@ -1,6 +1,5 @@
 'use strict';
 
-const Hoek = require('hoek');
 const Code = require('code');
 const Lab = require('lab');
 const Propathink = require('..');
@@ -17,7 +16,7 @@ const expect = Code.expect;
 
 describe('Propathink start', () => {
 
-    it('connect', (done) => {
+    it('One.testOne', (done) => {
 
         const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
 
@@ -26,15 +25,28 @@ describe('Propathink start', () => {
         expect(pathTarget[pathTarget.length - 1]).to.equal('test');
         expect(pathTarget[pathTarget.length - 2]).to.equal('propathink');
 
-        console.log('END test keys ' + Object.keys(rethink.requests.Go));
-        return rethink.requests.Go.goTwo('goTwo', (err, result) => {
+        // console.log('END test keys ' + Object.keys(rethink.requests.One));
 
-            console.log('       ***** err:' + err + ' result: ' + result);
-            return done();
+        return rethink.requests.One.testOne('testOne', rethink.next, (err, result, next) => {
+
+            console.log('got here');
+            if (err)  {
+
+                console.log('       ***** callback result err:' + err + ' result: ' + result);
+
+                // must set err in next() to exit
+                // request lifecycle.
+
+                return done(next(err));
+            }
+
+            console.log('       ***** callback result err:' + err + ' result: ' + result);
+
+            return done(next());
         });
     });
 
-    it('connect2', (done) => {
+    it('One.testTwo', (done) => {
 
         const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
 
@@ -43,13 +55,44 @@ describe('Propathink start', () => {
         expect(pathTarget[pathTarget.length - 1]).to.equal('test');
         expect(pathTarget[pathTarget.length - 2]).to.equal('propathink');
 
-        console.log('END test keys ' + Object.keys(rethink.requests.One));
-        return rethink.requests.One.testOne('testOne', (err, result) => {
+        const user = {
+            username: 'Jon',
+            password: 'password'
+        };
 
-            console.log('       ***** err:' + err + ' result: ' + result);
-            return done();
+        return rethink.requests.One.testTwo(user, rethink.next, (err, result, next) => {
+
+            if (err)  {
+
+                console.log('       ***** callback result err:' + err + ' result: ' + result);
+
+                // must set err in next() to exit
+                // request lifecycle.
+
+                return done(next(err));
+            }
+
+            console.log('       ***** callback result err:' + err + ' result: ' + result);
+            return done(next());
         });
     });
+
+    // it('connect', (done) => {
+
+    //     const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
+
+    //     expect(rethink.connect).to.exist();
+    //     const pathTarget = rethink.options.relativeTo.split('/');
+    //     expect(pathTarget[pathTarget.length - 1]).to.equal('test');
+    //     expect(pathTarget[pathTarget.length - 2]).to.equal('propathink');
+
+    //     console.log('END test keys ' + Object.keys(rethink.requests.Go));
+    //     return rethink.requests.Go.goTwo('goTwo', (err, result, next) => {
+
+    //         console.log('       ***** callback result err:' + err + ' result: ' + result);
+    //         return next(done());
+    //     });
+    // });
 });
 
 internals.manifest = {

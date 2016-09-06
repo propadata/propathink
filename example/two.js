@@ -13,23 +13,24 @@ exports.register = (plugin, options) => {
         {
             name: 'goOne',
             comment: 'goOne documentation here.',
-            handler: function (param, callback) {
+            handler: function (param, next, callback) {
 
                 Console.info('       ##### goOne executed');
+
                 Rethinkdb.dbCreate(this._connection.db).run(this.conn, (err, result) => {
 
                     Console.info('      result: ' + err + ' ' + result);
-                    return callback(err, '     success: ' + result);
+                    return callback(err, '     success: ' + result, next);
                 });
             }
         },
         {
             name: 'goTwo',
             comment: 'goTwo documentation here.',
-            handler: function (param, callback) {
+            handler: function (param, next, callback) {
 
                 console.log('       hurray!!! testTwo executed: ' + param);
-                return callback(null, param);
+                return callback(null, param, next);
             }
         }
     ]);
