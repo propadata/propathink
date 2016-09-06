@@ -8,18 +8,18 @@ in order to better maintain and manage all db request logic.
 
 #### configuration centric plugin design
 
-Project utilizes a manifest file for each project. The manifest configures the 
-database connection and all request plugins to be loaded in a project. Those who are familiar
+propathink utilizes a manifest file for each project. The manifest configures the 
+database connection and all request plugins to be loaded in a project. Those familiar
 with [hapijs/glue](https://github.com/hapijs/glue) will be comfortable with this design.
 
 #### provisions rethink connection
 
-Every request built using a propathink plugin is provisioned with and database connection
+Every request built using a propathink plugin is provisioned with a database connection
 before the request is executed. 
 <br/>
 ```
 this._connection.db     // configured database name from the manifest file.
-this.conn               // rethinkdb connection object
+this.conn               // generated rethinkdb connection object
 ```
 <br/>
 
@@ -63,10 +63,16 @@ The lifecyle has four steps: pre, validate, request, after.
 The handle element in a propathink request object must have the last two 
 parameters in order for the request lifecycle to work (next & callback):
 *next* is executed at the end of each step in the life cycle and needs to 
-be passed to the callback in the handle. then, next() is executed in the  callback code
-when callback logic is completed.  this ensures the *after* step of the lifecyle
-is really executed "after" the request is completed.  plus, it allows for monitoring of 
-performance and quantity of code execution.   
+be passed to the callback in the handle. It must be executed in the callback your write to 
+be consumed in the handler. This ensures the *after* step of the lifecyle
+is really executed "after" the request is completed.  If this is not done corrected, the after
+step in the lifecyce will execute before your database read and writes are completed. Plus, 
+executing next this way also allows for monitoring of performance and quantity of code execution.   
+
+#### database request monitoring
+
+Excitingly, utilizing the request lifecyle design to construct database requests allows for 
+monitoring of all requests' performance and usage.  
 
 #### influence of hapijs design
 
