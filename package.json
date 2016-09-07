@@ -1,6 +1,6 @@
 {
   "name": "propathink",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "rethinkdb client modular request builder",
   "main": "lib/index.js",
   "scripts": {
