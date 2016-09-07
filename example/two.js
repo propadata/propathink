@@ -5,7 +5,7 @@
 const Console = require('better-console');
 const Rethinkdb = require('rethinkdb');
 
-exports.register = (plugin, options) => {
+exports.register = (plugin, options, pthinkInternals) => {
 
     console.log('       register.attributes *****: ' + this.register.attributes.database);
 
@@ -17,7 +17,7 @@ exports.register = (plugin, options) => {
 
                 Console.info('       ##### goOne executed');
 
-                Rethinkdb.dbCreate(this._connection.db).run(this.conn, (err, result) => {
+                Rethinkdb.dbCreate(pthinkInternals.db).run(this.conn, (err, result) => {
 
                     Console.info('      result: ' + err + ' ' + result);
                     return callback(err, '     success: ' + result, next);
@@ -39,6 +39,7 @@ exports.register = (plugin, options) => {
 };
 
 exports.register.attributes = {
-    database: 'rethinkitize', // database name plugin belongs to.
-    name: 'Go'
+    database: 'rethinkitize',   // database name plugin belongs to.
+    name: 'Go',
+    type: 'request'             // three types: request, tool, foundation.
 };

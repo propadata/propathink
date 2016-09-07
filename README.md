@@ -65,9 +65,9 @@ parameters in order for the request lifecycle to work (next & callback):
 *next* is executed at the end of each step in the life cycle and needs to 
 be passed to the callback in the handle. It must be executed in the callback your write to 
 be consumed in the handler. This ensures the *after* step of the lifecyle
-is really executed "after" the request is completed.  If this is not done corrected, the after
+is really executed "after" the request is completed.  If this is not done correctly, the after
 step in the lifecyce will execute before your database read and writes are completed. Plus, 
-executing next this way also allows for monitoring of performance and quantity of code execution.   
+executing next this way allows for monitoring performance and quantity of code execution.   
 
 #### database request monitoring
 

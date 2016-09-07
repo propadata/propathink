@@ -6,7 +6,7 @@ const Console = require('better-console');
 const Rethinkdb = require('rethinkdb');
 const Joi = require('joi');
 
-exports.register = (plugin, options) => {
+exports.register = (plugin, options, pthinkInternals) => {
 
     plugin.request([
         {
@@ -20,7 +20,7 @@ exports.register = (plugin, options) => {
                 // Console.info('       - connection ' + Object.keys(this.requests));
                 // Console.info('       - next ' + next);
 
-                return Rethinkdb.dbCreate(this._connection.db).run(this.conn, (err, result) => {
+                return Rethinkdb.dbCreate(pthinkInternals.db).run(this.conn, (err, result) => {
 
                     Console.info('      testOne result: ' + err + ' ' + result);
                     return callback(err, '     success: ' + result, next);
@@ -49,5 +49,6 @@ exports.register = (plugin, options) => {
 
 exports.register.attributes = {
     database: 'rethinkitize', // database name plugin belongs to.
-    name: 'One'
+    name: 'One',
+    type: 'request'           // three types of plugins: request, tool, foundation
 };

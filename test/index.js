@@ -77,22 +77,31 @@ describe('Propathink start', () => {
         });
     });
 
-    // it('connect', (done) => {
+    it('Plugin tools and foundation dev', (done) => {
 
-    //     const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
+        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
 
-    //     expect(rethink.connect).to.exist();
-    //     const pathTarget = rethink.options.relativeTo.split('/');
-    //     expect(pathTarget[pathTarget.length - 1]).to.equal('test');
-    //     expect(pathTarget[pathTarget.length - 2]).to.equal('propathink');
+        expect(rethink.connect).to.exist();
+        const pathTarget = rethink.options.relativeTo.split('/');
+        expect(pathTarget[pathTarget.length - 1]).to.equal('test');
+        expect(pathTarget[pathTarget.length - 2]).to.equal('propathink');
 
-    //     console.log('END test keys ' + Object.keys(rethink.requests.Go));
-    //     return rethink.requests.Go.goTwo('goTwo', (err, result, next) => {
+        console.log('testone is running');
 
-    //         console.log('       ***** callback result err:' + err + ' result: ' + result);
-    //         return next(done());
-    //     });
-    // });
+        const pthinkInternals = rethink.getInternals();
+
+        console.log('watching this: ' + Object.keys(pthinkInternals));
+
+        console.log(Object.keys(pthinkInternals.tools));
+        console.log(Object.keys(pthinkInternals.foundation));
+
+        return pthinkInternals.tools.One.testOne('hello test', rethink.next, (err, result, next) => {
+
+            console.log('       ***** pthinkInteranls.tools.One callback result err:' + err + ' result: ' + result);
+            return done(next());
+        });
+
+    });
 });
 
 internals.manifest = {
@@ -108,6 +117,10 @@ internals.manifest = {
         registrations: [
             {
                 plugin: '../example/one.js',
+                options: null
+            },
+            {
+                plugin: '../example/onetool.js',
                 options: null
             },
             {
