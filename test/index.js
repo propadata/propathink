@@ -77,7 +77,7 @@ describe('Propathink start', () => {
         });
     });
 
-    it('Plugin tools and foundation dev', (done) => {
+    it('Plugin tools dev', (done) => {
 
         const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
 
@@ -96,6 +96,32 @@ describe('Propathink start', () => {
         console.log(Object.keys(pthinkInternals.foundation));
 
         return pthinkInternals.tools.One.testOne('hello test', rethink.next, (err, result, next) => {
+
+            console.log('       ***** pthinkInteranls.tools.One callback result err:' + err + ' result: ' + result);
+            return done(next());
+        });
+
+    });
+
+    it('Plugin foundation dev', (done) => {
+
+        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
+
+        expect(rethink.connect).to.exist();
+        const pathTarget = rethink.options.relativeTo.split('/');
+        expect(pathTarget[pathTarget.length - 1]).to.equal('test');
+        expect(pathTarget[pathTarget.length - 2]).to.equal('propathink');
+
+        console.log('testone is running');
+
+        const pthinkInternals = rethink.getInternals();
+
+        console.log('watching this: ' + Object.keys(pthinkInternals));
+
+        console.log(Object.keys(pthinkInternals.tools));
+        console.log(Object.keys(pthinkInternals.foundation));
+
+        return pthinkInternals.foundation.unique.testOne('hello test', rethink.next, (err, result, next) => {
 
             console.log('       ***** pthinkInteranls.tools.One callback result err:' + err + ' result: ' + result);
             return done(next());

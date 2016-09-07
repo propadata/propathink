@@ -16,6 +16,7 @@ exports.register = (plugin, options, pthinkInternals) => {
 
                 // console.log('       testOne executed: ' + param);
                 Console.info('       ##### tool.testOne executed');
+                console.log('       this.conn ' + Object.keys(this.conn));
                 return callback(null, 'tool.testOne result', next);
             }
         },
