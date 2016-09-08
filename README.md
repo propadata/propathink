@@ -14,12 +14,24 @@ with [hapijs/glue](https://github.com/hapijs/glue) will be comfortable with this
 
 #### provisions rethink connection
 
-Every request built using a propathink plugin is provisioned with a database connection
-before the request is executed. 
+Every request built using a propathink plugin is provisioned with the propathink object *this*
+and *pthinkInternals* object. See below for example showing how to use these objects to make a db request. 
+Note: every rethinkdb connection is stored in the *this.conn*. And, *pthinkInternals.db* contains
+the configured database name declared in the manifest.
+ 
 <br/>
 ```
-this._connection.db     // configured database name from the manifest file.
+pthinkInternals.db      // configured database name from the manifest file.
 this.conn               // generated rethinkdb connection object
+```
+
+<br/>
+Sample rethinkdb request made below: 
+```
+return Rethinkdb.dbCreate(pthinkInternals.db).run(this.conn, (err, result) => {
+
+    ....... code handling results .......
+});
 ```
 <br/>
 
@@ -27,6 +39,7 @@ this.conn               // generated rethinkdb connection object
 
 propathink imitates hapi's use of [joi](https://github.com/hapijs/joi) to validate parameters set in a request.
 Sample request below:
+
 
 ```
 {
