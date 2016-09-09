@@ -1,0 +1,159 @@
+[tracker], [label]createDbConnection[error]null[function]requests.One.testOne,[totalElapsedTime]49,[Date]1473448866236
+[tracker], [label]requestValidation[error]null[function]requests.One.testOne,[totalElapsedTime]0,[Date]1473448866243
+[tracker], [label]dbrequest[error]ReqlOpFailedError: Database `rethinkitize` already exists in:
+r.dbCreate("rethinkitize")
+^^^^^^^^^^^^^^^^^^^^^^^^^^[function]requests.One.testOne,[totalElapsedTime]17,[Date]1473448866265
+[tracker], [label]dbrequest[error]ReqlOpFailedError: Database `rethinkitize` already exists in:
+r.dbCreate("rethinkitize")
+^^^^^^^^^^^^^^^^^^^^^^^^^^[function]requests.One.testOne,[totalElapsedTime]17,[Date]1473448866274
+[tracker], [label]createDbConnection[error]null[function]requests.One.testTwo,[totalElapsedTime]4,[Date]1473448866317
+[tracker], [label]requestValidation[error]null[function]requests.One.testTwo,[totalElapsedTime]2,[Date]1473448866324
+[tracker], [label]dbrequest[error]null[function]requests.One.testTwo,[totalElapsedTime]2,[Date]1473448866331
+[tracker], [label]requestTotalElapsedTime[error]null[function]requests.One.testTwo,[totalElapsedTime]33,[Date]1473448866340
+-----
+[tracker], [label]createDbConnection[error]null[function]tools.One.testOne,[totalElapsedTime]11,[Date]1473448866386
+[tracker], [label]requestValidation[error]null[function]tools.One.testOne,[totalElapsedTime]0,[Date]1473448866395
+[tracker], [label]dbrequest[error]null[function]tools.One.testOne,[totalElapsedTime]3,[Date]1473448866400
+[tracker], [label]requestTotalElapsedTime[error]null[function]tools.One.testOne,[totalElapsedTime]30,[Date]1473448866401
+-----
+[tracker], [label]createDbConnection[error]null[function]foundation.unique.testOne,[totalElapsedTime]5,[Date]1473448866440
+[tracker], [label]requestValidation[error]null[function]foundation.unique.testOne,[totalElapsedTime]0,[Date]1473448866445
+[tracker], [label]dbrequest[error]null[function]foundation.unique.testOne,[totalElapsedTime]10,[Date]1473448866460
+[tracker], [label]requestTotalElapsedTime[error]null[function]foundation.unique.testOne,[totalElapsedTime]29,[Date]1473448866462
+-----
+[tracker], [label]createDbConnection[error]null[function]requests.One.testOne,[totalElapsedTime]47,[Date]1473448901649
+[tracker], [label]requestValidation[error]null[function]requests.One.testOne,[totalElapsedTime]0,[Date]1473448901654
+[tracker], [label]dbrequest[error]ReqlOpFailedError: Database `rethinkitize` already exists in:
+r.dbCreate("rethinkitize")
+^^^^^^^^^^^^^^^^^^^^^^^^^^[function]requests.One.testOne,[totalElapsedTime]20,[Date]1473448901678
+[tracker], [label]dbrequest[error]ReqlOpFailedError: Database `rethinkitize` already exists in:
+r.dbCreate("rethinkitize")
+^^^^^^^^^^^^^^^^^^^^^^^^^^[function]requests.One.testOne,[totalElapsedTime]20,[Date]1473448901684
+-----
+[tracker], [label]createDbConnection[error]null[function]requests.One.testTwo,[totalElapsedTime]12,[Date]1473448901732
+[tracker], [label]requestValidation[error]null[function]requests.One.testTwo,[totalElapsedTime]3,[Date]1473448901739
+[tracker], [label]dbrequest[error]null[function]requests.One.testTwo,[totalElapsedTime]8,[Date]1473448901752
+[tracker], [label]requestTotalElapsedTime[error]null[function]requests.One.testTwo,[totalElapsedTime]44,[Date]1473448901756
+-----
+[tracker], [label]createDbConnection[error]null[function]tools.One.testOne,[totalElapsedTime]10,[Date]1473448901798
+[tracker], [label]requestValidation[error]null[function]tools.One.testOne,[totalElapsedTime]0,[Date]1473448901804
+[tracker], [label]dbrequest[error]null[function]tools.One.testOne,[totalElapsedTime]2,[Date]1473448901809
+[tracker], [label]requestTotalElapsedTime[error]null[function]tools.One.testOne,[totalElapsedTime]28,[Date]1473448901815
+-----
+[tracker], [label]createDbConnection[error]null[function]foundation.unique.testOne,[totalElapsedTime]3,[Date]1473448901846
+[tracker], [label]requestValidation[error]null[function]foundation.unique.testOne,[totalElapsedTime]0,[Date]1473448901853
+[tracker], [label]dbrequest[error]null[function]foundation.unique.testOne,[totalElapsedTime]3,[Date]1473448901861
+[tracker], [label]requestTotalElapsedTime[error]null[function]foundation.unique.testOne,[totalElapsedTime]20,[Date]1473448901862
+-----
+[tracker], [label]createDbConnection[error]null[function]requests.One.testOne,[totalElapsedTime]41,[Date]1473448922423
+[tracker], [label]requestValidation[error]null[function]requests.One.testOne,[totalElapsedTime]0,[Date]1473448922438
+[tracker], [label]dbrequest[error]ReqlOpFailedError: Database `rethinkitize` already exists in:
+r.dbCreate("rethinkitize")
+^^^^^^^^^^^^^^^^^^^^^^^^^^[function]requests.One.testOne,[totalElapsedTime]24,[Date]1473448922467
+[tracker], [label]dbrequest[error]ReqlOpFailedError: Database `rethinkitize` already exists in:
+r.dbCreate("rethinkitize")
+^^^^^^^^^^^^^^^^^^^^^^^^^^[function]requests.One.testOne,[totalElapsedTime]24,[Date]1473448922473
+-----
+[tracker], [label]createDbConnection[error]null[function]requests.One.testTwo,[totalElapsedTime]20,[Date]1473448922533
+[tracker], [label]requestValidation[error]null[function]requests.One.testTwo,[totalElapsedTime]4,[Date]1473448922543
+[tracker], [label]dbrequest[error]null[function]requests.One.testTwo,[totalElapsedTime]2,[Date]1473448922548
+[tracker], [label]requestTotalElapsedTime[error]null[function]requests.One.testTwo,[totalElapsedTime]43,[Date]1473448922554
+-----
+[tracker], [label]createDbConnection[error]null[function]tools.One.testOne,[totalElapsedTime]6,[Date]1473448922595
+[tracker], [label]requestValidation[error]null[function]tools.One.testOne,[totalElapsedTime]0,[Date]1473448922603
+[tracker], [label]dbrequest[error]null[function]tools.One.testOne,[totalElapsedTime]3,[Date]1473448922609
+[tracker], [label]requestTotalElapsedTime[error]null[function]tools.One.testOne,[totalElapsedTime]29,[Date]1473448922615
+-----
+[tracker], [label]createDbConnection[error]null[function]foundation.unique.testOne,[totalElapsedTime]7,[Date]1473448922653
+[tracker], [label]requestValidation[error]null[function]foundation.unique.testOne,[totalElapsedTime]0,[Date]1473448922656
+[tracker], [label]dbrequest[error]null[function]foundation.unique.testOne,[totalElapsedTime]2,[Date]1473448922661
+[tracker], [label]requestTotalElapsedTime[error]null[function]foundation.unique.testOne,[totalElapsedTime]18,[Date]1473448922663
+-----
+[tracker], [label]createDbConnection[error]null[function]requests.One.testOne,[totalElapsedTime]49,[Date]1473448932904
+[tracker], [label]requestValidation[error]null[function]requests.One.testOne,[totalElapsedTime]0,[Date]1473448932912
+[tracker], [label]dbrequest[error]ReqlOpFailedError: Database `rethinkitize` already exists in:
+r.dbCreate("rethinkitize")
+^^^^^^^^^^^^^^^^^^^^^^^^^^[function]requests.One.testOne,[totalElapsedTime]29,[Date]1473448932943
+[tracker], [label]dbrequest[error]ReqlOpFailedError: Database `rethinkitize` already exists in:
+r.dbCreate("rethinkitize")
+^^^^^^^^^^^^^^^^^^^^^^^^^^[function]requests.One.testOne,[totalElapsedTime]29,[Date]1473448932946
+-----
+[tracker], [label]createDbConnection[error]null[function]requests.One.testTwo,[totalElapsedTime]11,[Date]1473448932995
+[tracker], [label]requestValidation[error]null[function]requests.One.testTwo,[totalElapsedTime]7,[Date]1473448933005
+[tracker], [label]dbrequest[error]null[function]requests.One.testTwo,[totalElapsedTime]1,[Date]1473448933011
+[tracker], [label]requestTotalElapsedTime[error]null[function]requests.One.testTwo,[totalElapsedTime]43,[Date]1473448933019
+-----
+[tracker], [label]createDbConnection[error]null[function]tools.One.testOne,[totalElapsedTime]3,[Date]1473448933061
+[tracker], [label]requestValidation[error]null[function]tools.One.testOne,[totalElapsedTime]0,[Date]1473448933063
+[tracker], [label]dbrequest[error]null[function]tools.One.testOne,[totalElapsedTime]3,[Date]1473448933067
+[tracker], [label]requestTotalElapsedTime[error]null[function]tools.One.testOne,[totalElapsedTime]22,[Date]1473448933071
+-----
+[tracker], [label]createDbConnection[error]null[function]foundation.unique.testOne,[totalElapsedTime]7,[Date]1473448933110
+[tracker], [label]requestValidation[error]null[function]foundation.unique.testOne,[totalElapsedTime]0,[Date]1473448933111
+[tracker], [label]dbrequest[error]null[function]foundation.unique.testOne,[totalElapsedTime]8,[Date]1473448933121
+[tracker], [label]requestTotalElapsedTime[error]null[function]foundation.unique.testOne,[totalElapsedTime]21,[Date]1473448933123
+-----
+[tracker], [label]createDbConnection[error]null[function]requests.One.testOne,[totalElapsedTime]43,[Date]1473448978204
+[tracker], [label]requestValidation[error]null[function]requests.One.testOne,[totalElapsedTime]0,[Date]1473448978213
+[tracker], [label]dbrequest[error]null[function]requests.One.testOne,[totalElapsedTime]20,[Date]1473448978235
+[tracker], [label]requestTotalElapsedTime[error]null[function]requests.One.testOne,[totalElapsedTime]80,[Date]1473448978237
+-----
+[tracker], [label]createDbConnection[error]null[function]requests.One.testTwo,[totalElapsedTime]6,[Date]1473448978282
+[tracker], [label]requestValidation[error]null[function]requests.One.testTwo,[totalElapsedTime]2,[Date]1473448978286
+[tracker], [label]dbrequest[error]null[function]requests.One.testTwo,[totalElapsedTime]4,[Date]1473448978297
+[tracker], [label]requestTotalElapsedTime[error]null[function]requests.One.testTwo,[totalElapsedTime]25,[Date]1473448978299
+-----
+[tracker], [label]createDbConnection[error]null[function]tools.One.testOne,[totalElapsedTime]5,[Date]1473448978342
+[tracker], [label]requestValidation[error]null[function]tools.One.testOne,[totalElapsedTime]0,[Date]1473448978344
+[tracker], [label]dbrequest[error]null[function]tools.One.testOne,[totalElapsedTime]2,[Date]1473448978352
+[tracker], [label]requestTotalElapsedTime[error]null[function]tools.One.testOne,[totalElapsedTime]18,[Date]1473448978354
+-----
+[tracker], [label]createDbConnection[error]null[function]foundation.unique.testOne,[totalElapsedTime]2,[Date]1473448978401
+[tracker], [label]requestValidation[error]null[function]foundation.unique.testOne,[totalElapsedTime]0,[Date]1473448978403
+[tracker], [label]dbrequest[error]null[function]foundation.unique.testOne,[totalElapsedTime]3,[Date]1473448978414
+[tracker], [label]requestTotalElapsedTime[error]null[function]foundation.unique.testOne,[totalElapsedTime]19,[Date]1473448978416
+-----
+[tracker], [label]createDbConnection[error]null[function]requests.One.testOne,[totalElapsedTime]52,[Date]1473449071498
+[tracker], [label]requestValidation[error]null[function]requests.One.testOne,[totalElapsedTime]0,[Date]1473449071501
+[tracker], [label]dbrequest[error]null[function]requests.One.testOne,[totalElapsedTime]17,[Date]1473449071521
+[tracker], [label]requestTotalElapsedTime[error]null[function]requests.One.testOne,[totalElapsedTime]80,[Date]1473449071523
+-----
+[tracker], [label]createDbConnection[error]null[function]requests.One.testTwo,[totalElapsedTime]6,[Date]1473449071562
+[tracker], [label]requestValidation[error]null[function]requests.One.testTwo,[totalElapsedTime]2,[Date]1473449071566
+[tracker], [label]dbrequest[error]null[function]requests.One.testTwo,[totalElapsedTime]2,[Date]1473449071577
+[tracker], [label]requestTotalElapsedTime[error]null[function]requests.One.testTwo,[totalElapsedTime]24,[Date]1473449071578
+-----
+[tracker], [label]createDbConnection[error]null[function]tools.One.testOne,[totalElapsedTime]3,[Date]1473449071615
+[tracker], [label]requestValidation[error]null[function]tools.One.testOne,[totalElapsedTime]0,[Date]1473449071617
+[tracker], [label]dbrequest[error]null[function]tools.One.testOne,[totalElapsedTime]4,[Date]1473449071622
+[tracker], [label]requestTotalElapsedTime[error]null[function]tools.One.testOne,[totalElapsedTime]13,[Date]1473449071624
+-----
+[tracker], [label]createDbConnection[error]null[function]foundation.unique.testOne,[totalElapsedTime]5,[Date]1473449071661
+[tracker], [label]requestValidation[error]null[function]foundation.unique.testOne,[totalElapsedTime]0,[Date]1473449071663
+[tracker], [label]dbrequest[error]null[function]foundation.unique.testOne,[totalElapsedTime]10,[Date]1473449071675
+[tracker], [label]requestTotalElapsedTime[error]null[function]foundation.unique.testOne,[totalElapsedTime]24,[Date]1473449071678
+-----
+[tracker], [label]createDbConnection[error]null[function]requests.One.testOne,[totalElapsedTime]40,[Date]1473449097854
+[tracker], [label]requestValidation[error]null[function]requests.One.testOne,[totalElapsedTime]0,[Date]1473449097863
+[tracker], [label]dbrequest[error]ReqlOpFailedError: Database `rethinkitize` already exists in:
+r.dbCreate("rethinkitize")
+^^^^^^^^^^^^^^^^^^^^^^^^^^[function]requests.One.testOne,[totalElapsedTime]20,[Date]1473449097886
+[tracker], [label]dbrequest[error]ReqlOpFailedError: Database `rethinkitize` already exists in:
+r.dbCreate("rethinkitize")
+^^^^^^^^^^^^^^^^^^^^^^^^^^[function]requests.One.testOne,[totalElapsedTime]20,[Date]1473449097888
+-----
+[tracker], [label]createDbConnection[error]null[function]requests.One.testTwo,[totalElapsedTime]14,[Date]1473449097926
+[tracker], [label]requestValidation[error]null[function]requests.One.testTwo,[totalElapsedTime]2,[Date]1473449097929
+[tracker], [label]dbrequest[error]null[function]requests.One.testTwo,[totalElapsedTime]1,[Date]1473449097931
+[tracker], [label]requestTotalElapsedTime[error]null[function]requests.One.testTwo,[totalElapsedTime]22,[Date]1473449097932
+-----
+[tracker], [label]createDbConnection[error]null[function]tools.One.testOne,[totalElapsedTime]7,[Date]1473449098002
+[tracker], [label]requestValidation[error]null[function]tools.One.testOne,[totalElapsedTime]0,[Date]1473449098005
+[tracker], [label]dbrequest[error]null[function]tools.One.testOne,[totalElapsedTime]6,[Date]1473449098013
+[tracker], [label]requestTotalElapsedTime[error]null[function]tools.One.testOne,[totalElapsedTime]22,[Date]1473449098013
+-----
+[tracker], [label]createDbConnection[error]null[function]foundation.unique.testOne,[totalElapsedTime]7,[Date]1473449098042
+[tracker], [label]requestValidation[error]null[function]foundation.unique.testOne,[totalElapsedTime]0,[Date]1473449098047
+[tracker], [label]dbrequest[error]null[function]foundation.unique.testOne,[totalElapsedTime]12,[Date]1473449098060
+[tracker], [label]requestTotalElapsedTime[error]null[function]foundation.unique.testOne,[totalElapsedTime]29,[Date]1473449098061
+-----

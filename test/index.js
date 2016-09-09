@@ -18,7 +18,7 @@ describe('Propathink start', () => {
 
     it('One.testOne', (done) => {
 
-        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
+        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
 
         expect(rethink.connect).to.exist();
         const pathTarget = rethink.options.relativeTo.split('/');
@@ -41,14 +41,13 @@ describe('Propathink start', () => {
             }
 
             console.log('       ***** callback result err:' + err + ' result: ' + result);
-
             return done(next());
         });
     });
 
     it('One.testTwo', (done) => {
 
-        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
+        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
 
         expect(rethink.connect).to.exist();
         const pathTarget = rethink.options.relativeTo.split('/');
@@ -79,7 +78,7 @@ describe('Propathink start', () => {
 
     it('Plugin tools dev', (done) => {
 
-        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
+        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
 
         expect(rethink.connect).to.exist();
         const pathTarget = rethink.options.relativeTo.split('/');
@@ -105,7 +104,7 @@ describe('Propathink start', () => {
 
     it('Plugin foundation dev', (done) => {
 
-        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
+        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
 
         expect(rethink.connect).to.exist();
         const pathTarget = rethink.options.relativeTo.split('/');
@@ -155,9 +154,12 @@ internals.manifest = {
             }
         ]
     },
-
     compositionOptions: {
         relativeTo: __dirname + '/..'
+    },
+    developmentOptions: {
+        consoleTracker: false,              // true prints performance to console. file log always exists.
+        logfile: 'logs/tracker.txt'
     }
 };
 
