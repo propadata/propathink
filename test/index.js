@@ -18,12 +18,12 @@ describe('Propathink start', () => {
 
     it('One.testOne', (done) => {
 
-        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
+        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
 
         expect(rethink.connect).to.exist();
         const pathTarget = rethink.options.relativeTo.split('/');
-        expect(pathTarget[pathTarget.length - 1]).to.equal('test');
-        expect(pathTarget[pathTarget.length - 2]).to.equal('propathink');
+        expect(pathTarget[pathTarget.length - 2]).to.equal('test');
+        expect(pathTarget[pathTarget.length - 3]).to.equal('propathink');
 
         // console.log('END test keys ' + Object.keys(rethink.requests.One));
 
@@ -41,19 +41,18 @@ describe('Propathink start', () => {
             }
 
             console.log('       ***** callback result err:' + err + ' result: ' + result);
-
             return done(next());
         });
     });
 
     it('One.testTwo', (done) => {
 
-        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
+        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
 
         expect(rethink.connect).to.exist();
         const pathTarget = rethink.options.relativeTo.split('/');
-        expect(pathTarget[pathTarget.length - 1]).to.equal('test');
-        expect(pathTarget[pathTarget.length - 2]).to.equal('propathink');
+        expect(pathTarget[pathTarget.length - 2]).to.equal('test');
+        expect(pathTarget[pathTarget.length - 3]).to.equal('propathink');
 
         const user = {
             username: 'Jon',
@@ -79,12 +78,12 @@ describe('Propathink start', () => {
 
     it('Plugin tools dev', (done) => {
 
-        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
+        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
 
         expect(rethink.connect).to.exist();
         const pathTarget = rethink.options.relativeTo.split('/');
-        expect(pathTarget[pathTarget.length - 1]).to.equal('test');
-        expect(pathTarget[pathTarget.length - 2]).to.equal('propathink');
+        expect(pathTarget[pathTarget.length - 2]).to.equal('test');
+        expect(pathTarget[pathTarget.length - 3]).to.equal('propathink');
 
         console.log('testone is running');
 
@@ -105,12 +104,12 @@ describe('Propathink start', () => {
 
     it('Plugin foundation dev', (done) => {
 
-        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions);
+        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
 
         expect(rethink.connect).to.exist();
         const pathTarget = rethink.options.relativeTo.split('/');
-        expect(pathTarget[pathTarget.length - 1]).to.equal('test');
-        expect(pathTarget[pathTarget.length - 2]).to.equal('propathink');
+        expect(pathTarget[pathTarget.length - 2]).to.equal('test');
+        expect(pathTarget[pathTarget.length - 3]).to.equal('propathink');
 
         console.log('testone is running');
 
@@ -142,22 +141,25 @@ internals.manifest = {
         live: false,
         registrations: [
             {
-                plugin: '../example/one.js',
+                plugin: 'example/one.js',
                 options: null
             },
             {
-                plugin: '../example/onetool.js',
+                plugin: 'example/onetool.js',
                 options: null
             },
             {
-                plugin: '../example/two.js',
+                plugin: 'example/two.js',
                 options: null
             }
         ]
     },
-
     compositionOptions: {
-        relativeTo: __dirname
+        relativeTo: __dirname + '/..'
+    },
+    developmentOptions: {
+        consoleTracker: false,              // true prints performance to console. file log always exists.
+        logfile: 'logs/tracker.txt'
     }
 };
 

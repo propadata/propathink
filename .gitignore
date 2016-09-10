@@ -17,3 +17,4 @@ coverage.*
 test/fixtures/awesomeLog
 .vagrant/
 docs
+logs
