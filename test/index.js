@@ -25,11 +25,8 @@ describe('Propathink start', () => {
         expect(pathTarget[pathTarget.length - 2]).to.equal('test');
         expect(pathTarget[pathTarget.length - 3]).to.equal('propathink');
 
-        // console.log('END test keys ' + Object.keys(rethink.requests.One));
-
         return rethink.requests.One.testOne('testOne', rethink.next, (err, result, next) => {
 
-            console.log('got here');
             if (err)  {
 
                 console.log('       ***** callback result err:' + err + ' result: ' + result);
@@ -40,6 +37,7 @@ describe('Propathink start', () => {
                 return done(next(err));
             }
 
+            expect(err).to.equal(null);
             console.log('       ***** callback result err:' + err + ' result: ' + result);
             return done(next());
         });
@@ -76,31 +74,6 @@ describe('Propathink start', () => {
         });
     });
 
-    it('pthinkInternals.tools.One.testOne', (done) => {
-
-        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
-
-        expect(rethink.connect).to.exist();
-        const pathTarget = rethink.options.relativeTo.split('/');
-        expect(pathTarget[pathTarget.length - 2]).to.equal('test');
-        expect(pathTarget[pathTarget.length - 3]).to.equal('propathink');
-
-        console.log('testone is running');
-
-        const pthinkInternals = rethink.getInternals();
-
-        console.log('watching this: ' + Object.keys(pthinkInternals));
-
-        console.log(Object.keys(pthinkInternals.tools));
-        console.log(Object.keys(pthinkInternals.foundation));
-
-        return pthinkInternals.tools.One.testOne('hello test', rethink.next, (err, result, next) => {
-
-            console.log('       ***** pthinkInteranls.tools.One callback result err:' + err + ' result: ' + result);
-            return done(next());
-        });
-
-    });
 
     it('Plugin foundation dev', (done) => {
 
