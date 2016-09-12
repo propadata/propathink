@@ -1,5 +1,7 @@
 # propathink
 
+[![Build Status](https://travis-ci.org/zoe-1/propathink.svg?branch=master)](https://travis-ci.org/zoe-1/propathink)
+
 ### rethinkdb client
 rethinkdb client focused on maintainable code organization. 
 Store rethinkdb request logic in modular way by labelling and storing requests in plugins/modules. 
