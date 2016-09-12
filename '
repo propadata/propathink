@@ -54,7 +54,8 @@ exports = module.exports = internals.Tracker = {
 
             if (err)  {
 
-                return internals.error(file, err);
+                return internals.error(err);
+                // return 'hello.'; 
             }
 
             return;
@@ -68,8 +69,6 @@ exports = module.exports = internals.Tracker = {
 
         const message = '-----\n';
 
-        Console.info('      consoleTrackerStatus ' + consoleTrackerStatus);
-
         if (consoleTrackerStatus)  {
 
             Console.info('       ' + message);
@@ -77,22 +76,21 @@ exports = module.exports = internals.Tracker = {
 
         const file = pthinkInternals.compositionOptions.relativeTo + '/' + pthinkInternals.developmentOptions.logfile;
 
-        Fs.appendFile(file, message, () => {
+        Fs.appendFile(file, message, (err) => {
 
-            // escaped for coverage.err
-            // if (err) {
-            //     throw err;
-            // }
+            if (err) {
+                throw err;
+            }
 
             return;
         });
     }
 };
 
-internals.error = function (file, errorMessage) {
+internals.error: function (errorMessage) {
 
-    Fs.appendFile(file, errorMessage, () => {
-
+    Fs.appendFile(file, errorMessage, (err) => {
+    
         return;
     });
-};
+};   

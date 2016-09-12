@@ -76,7 +76,7 @@ describe('Propathink start', () => {
         });
     });
 
-    it('Plugin tools dev', (done) => {
+    it('pthinkInternals.tools.One.testOne', (done) => {
 
         const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
 
