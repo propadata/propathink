@@ -91,3 +91,7 @@ monitoring of all requests' performance and usage.
 propathink is highly influenced by hapijs architecture. After studying hapi's architecture
 decided to build propathink using a plugin architecture in order to better maintain 
 database request logic and all the other good stuff propathink does. 
+
+#### Test
+
+#### Style Guide
