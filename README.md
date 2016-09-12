@@ -19,13 +19,12 @@ and *pthinkInternals* object. See below for example showing how to use these obj
 Note: every rethinkdb connection is stored in the *this.conn*. And, *pthinkInternals.db* contains
 the configured database name declared in the manifest.
  
-<br/>
+
 ```
 pthinkInternals.db      // configured database name from the manifest file.
 this.conn               // generated rethinkdb connection object
 ```
 
-<br/>
 Sample rethinkdb request made below: 
 ```
 return Rethinkdb.dbCreate(pthinkInternals.db).run(this.conn, (err, result) => {
