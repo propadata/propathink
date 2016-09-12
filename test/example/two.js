@@ -2,7 +2,7 @@
 
 const Code = require('code');
 const Lab = require('lab');
-const Propathink = require('..');
+const Propathink = require('../..');
 
 const internals = {};
 
@@ -14,57 +14,27 @@ const it = lab.it;
 const expect = Code.expect;
 
 
-describe('Propathink start', () => {
+describe('this.requests.One', () => {
 
-    it('One.testOne', (done) => {
+    it('this.requests.Go.goOne', (done) => {
 
         const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
 
         expect(rethink.connect).to.exist();
         const pathTarget = rethink.options.relativeTo.split('/');
-        expect(pathTarget[pathTarget.length - 2]).to.equal('test');
-        expect(pathTarget[pathTarget.length - 3]).to.equal('propathink');
+        expect(pathTarget[pathTarget.length - 4]).to.equal('test');
+        expect(pathTarget[pathTarget.length - 5]).to.equal('propathink');
 
-        return rethink.requests.One.testOne('testOne', rethink.next, (err, result, next) => {
+        // console.log('END test keys ' + Object.keys(rethink.requests.One));
+
+        return rethink.requests.Go.goOne('goOne', rethink.next, (err, result, next) => {
 
             if (err)  {
 
                 console.log('       ***** callback result err:' + err + ' result: ' + result);
 
                 // must set err in next() to exit
-                // request lifecycle.
-
-                return done(next(err));
-            }
-
-            expect(err).to.equal(null);
-            console.log('       ***** callback result err:' + err + ' result: ' + result);
-            return done(next());
-        });
-    });
-
-    it('One.testTwo', (done) => {
-
-        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
-
-        expect(rethink.connect).to.exist();
-        const pathTarget = rethink.options.relativeTo.split('/');
-        expect(pathTarget[pathTarget.length - 2]).to.equal('test');
-        expect(pathTarget[pathTarget.length - 3]).to.equal('propathink');
-
-        const user = {
-            username: 'Jon',
-            password: 'password'
-        };
-
-        return rethink.requests.One.testTwo(user, rethink.next, (err, result, next) => {
-
-            if (err)  {
-
-                console.log('       ***** callback result err:' + err + ' result: ' + result);
-
-                // must set err in next() to exit
-                // request lifecycle.
+                // request lifecycle with error message.
 
                 return done(next(err));
             }
@@ -74,31 +44,32 @@ describe('Propathink start', () => {
         });
     });
 
-
-    it('Plugin foundation dev', (done) => {
+    it('rethink.requests.Go.goTwo', (done) => {
 
         const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
 
         expect(rethink.connect).to.exist();
         const pathTarget = rethink.options.relativeTo.split('/');
-        expect(pathTarget[pathTarget.length - 2]).to.equal('test');
-        expect(pathTarget[pathTarget.length - 3]).to.equal('propathink');
+        expect(pathTarget[pathTarget.length - 4]).to.equal('test');
+        expect(pathTarget[pathTarget.length - 5]).to.equal('propathink');
 
-        console.log('testone is running');
+        // console.log('END test keys ' + Object.keys(rethink.requests.One));
 
-        const pthinkInternals = rethink.getInternals();
+        return rethink.requests.Go.goTwo('goTwo', rethink.next, (err, result, next) => {
 
-        console.log('watching this: ' + Object.keys(pthinkInternals));
+            if (err)  {
 
-        console.log(Object.keys(pthinkInternals.tools));
-        console.log(Object.keys(pthinkInternals.foundation));
+                console.log('       ***** callback result err:' + err + ' result: ' + result);
 
-        return pthinkInternals.foundation.unique.testOne('hello test', rethink.next, (err, result, next) => {
+                // must set err in next() to exit
+                // request lifecycle with error message.
 
-            console.log('       ***** pthinkInteranls.tools.One callback result err:' + err + ' result: ' + result);
+                return done(next(err));
+            }
+
+            console.log('       ***** callback result err:' + err + ' result: ' + result);
             return done(next());
         });
-
     });
 });
 
@@ -128,11 +99,10 @@ internals.manifest = {
         ]
     },
     compositionOptions: {
-        relativeTo: __dirname + '/..'
+        relativeTo: __dirname + '/../..'
     },
     developmentOptions: {
         consoleTracker: false,              // true prints performance to console. file log always exists.
         logfile: 'logs/tracker.txt'
     }
 };
-

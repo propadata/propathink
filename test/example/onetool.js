@@ -2,7 +2,7 @@
 
 const Code = require('code');
 const Lab = require('lab');
-const Propathink = require('..');
+const Propathink = require('../..');
 
 const internals = {};
 
@@ -14,86 +14,53 @@ const it = lab.it;
 const expect = Code.expect;
 
 
-describe('Propathink start', () => {
+describe('tool.One', () => {
 
-    it('One.testOne', (done) => {
-
-        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
-
-        expect(rethink.connect).to.exist();
-        const pathTarget = rethink.options.relativeTo.split('/');
-        expect(pathTarget[pathTarget.length - 2]).to.equal('test');
-        expect(pathTarget[pathTarget.length - 3]).to.equal('propathink');
-
-        return rethink.requests.One.testOne('testOne', rethink.next, (err, result, next) => {
-
-            if (err)  {
-
-                console.log('       ***** callback result err:' + err + ' result: ' + result);
-
-                // must set err in next() to exit
-                // request lifecycle.
-
-                return done(next(err));
-            }
-
-            expect(err).to.equal(null);
-            console.log('       ***** callback result err:' + err + ' result: ' + result);
-            return done(next());
-        });
-    });
-
-    it('One.testTwo', (done) => {
+    it('pthinkInternals.tools.One.testTwo', (done) => {
 
         const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
 
         expect(rethink.connect).to.exist();
         const pathTarget = rethink.options.relativeTo.split('/');
-        expect(pathTarget[pathTarget.length - 2]).to.equal('test');
-        expect(pathTarget[pathTarget.length - 3]).to.equal('propathink');
+        expect(pathTarget[pathTarget.length - 4]).to.equal('test');
+        expect(pathTarget[pathTarget.length - 5]).to.equal('propathink');
 
-        const user = {
-            username: 'Jon',
-            password: 'password'
-        };
-
-        return rethink.requests.One.testTwo(user, rethink.next, (err, result, next) => {
-
-            if (err)  {
-
-                console.log('       ***** callback result err:' + err + ' result: ' + result);
-
-                // must set err in next() to exit
-                // request lifecycle.
-
-                return done(next(err));
-            }
-
-            console.log('       ***** callback result err:' + err + ' result: ' + result);
-            return done(next());
-        });
-    });
-
-
-    it('Plugin foundation dev', (done) => {
-
-        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
-
-        expect(rethink.connect).to.exist();
-        const pathTarget = rethink.options.relativeTo.split('/');
-        expect(pathTarget[pathTarget.length - 2]).to.equal('test');
-        expect(pathTarget[pathTarget.length - 3]).to.equal('propathink');
-
-        console.log('testone is running');
+        // console.log('END test keys ' + Object.keys(rethink.requests.One));
 
         const pthinkInternals = rethink.getInternals();
 
-        console.log('watching this: ' + Object.keys(pthinkInternals));
+        return pthinkInternals.tools.One.testTwo('testTwo', rethink.next, (err, result, next) => {
+
+            if (err)  {
+
+                console.log('       ***** callback result err:' + err + ' result: ' + result);
+
+                // must set err in next() to exit
+                // request lifecycle.
+
+                return done(next(err));
+            }
+
+            console.log('       ***** callback result err:' + err + ' result: ' + result);
+            return done(next());
+        });
+    });
+
+    it('pthinkInternals.tools.One.testOne', (done) => {
+
+        const rethink = new Propathink.DB(internals.manifest.connection, internals.manifest.compositionOptions, internals.manifest.developmentOptions);
+
+        expect(rethink.connect).to.exist();
+        const pathTarget = rethink.options.relativeTo.split('/');
+        expect(pathTarget[pathTarget.length - 4]).to.equal('test');
+        expect(pathTarget[pathTarget.length - 5]).to.equal('propathink');
+
+        const pthinkInternals = rethink.getInternals();
 
         console.log(Object.keys(pthinkInternals.tools));
         console.log(Object.keys(pthinkInternals.foundation));
 
-        return pthinkInternals.foundation.unique.testOne('hello test', rethink.next, (err, result, next) => {
+        return pthinkInternals.tools.One.testOne('hello test', rethink.next, (err, result, next) => {
 
             console.log('       ***** pthinkInteranls.tools.One callback result err:' + err + ' result: ' + result);
             return done(next());
@@ -128,11 +95,10 @@ internals.manifest = {
         ]
     },
     compositionOptions: {
-        relativeTo: __dirname + '/..'
+        relativeTo: __dirname + '/../..'
     },
     developmentOptions: {
         consoleTracker: false,              // true prints performance to console. file log always exists.
         logfile: 'logs/tracker.txt'
     }
 };
-
