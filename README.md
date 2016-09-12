@@ -95,5 +95,11 @@ decided to build propathink using a plugin architecture in order to better maint
 database request logic and all the other good stuff propathink does. 
 
 #### Test
+project requires 100% test coverage.
+[hapijs/lab](https://github.com/hapijs/lab) testing framework and [hapijs/code](https://github.com/hapijs/code) assertian library.
 
 #### Style Guide
+Project abides by the [hapijs style guide](https://github.com/hapijs/contrib/blob/master/Style.md).
+The style guide is enforce by using [hapijs/lab](https://github.com/hapijs/lab) testing framework and 
+[code](https://github.com/hapijs/code) assertian library. The linting standards provided by the framework
+enforces the hapijs style guide.
