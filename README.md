@@ -1,5 +1,7 @@
 # propathink
 
+[![Build Status](https://travis-ci.org/zoe-1/propathink.svg?branch=master)](https://travis-ci.org/zoe-1/propathink)
+
 ### rethinkdb client
 rethinkdb client focused on maintainable code organization. 
 Store rethinkdb request logic in modular way by labelling and storing requests in plugins/modules. 
@@ -19,13 +21,12 @@ and *pthinkInternals* object. See below for example showing how to use these obj
 Note: every rethinkdb connection is stored in the *this.conn*. And, *pthinkInternals.db* contains
 the configured database name declared in the manifest.
  
-<br/>
+
 ```
 pthinkInternals.db      // configured database name from the manifest file.
 this.conn               // generated rethinkdb connection object
 ```
 
-<br/>
 Sample rethinkdb request made below: 
 ```
 return Rethinkdb.dbCreate(pthinkInternals.db).run(this.conn, (err, result) => {
@@ -92,3 +93,13 @@ monitoring of all requests' performance and usage.
 propathink is highly influenced by hapijs architecture. After studying hapi's architecture
 decided to build propathink using a plugin architecture in order to better maintain 
 database request logic and all the other good stuff propathink does. 
+
+#### Test
+project requires 100% test coverage.
+[hapijs/lab](https://github.com/hapijs/lab) testing framework and [hapijs/code](https://github.com/hapijs/code) assertian library.
+
+#### Style Guide
+Project abides by the [hapijs style guide](https://github.com/hapijs/contrib/blob/master/Style.md).
+The style guide is enforce by using [hapijs/lab](https://github.com/hapijs/lab) testing framework and 
+[code](https://github.com/hapijs/code) assertian library. The linting standards provided by the framework
+enforces the hapijs style guide.
