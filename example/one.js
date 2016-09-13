@@ -2,7 +2,7 @@
 
 // const Path = require('path');
 
-const Console = require('better-console');
+// const Console = require('better-console');
 const Rethinkdb = require('rethinkdb');
 const Joi = require('joi');
 
@@ -15,14 +15,14 @@ exports.register = (plugin, options, pthinkInternals) => {
             handler: function (param, next, callback) {
 
                 // console.log('       testOne executed: ' + param);
-                Console.info('       ##### testOne executed');
+                // Console.info('       ##### testOne executed');
                 // Console.info('       testOne this.connection ' + Object.keys(this.conn));
                 // Console.info('       - connection ' + Object.keys(this.requests));
                 // Console.info('       - next ' + next);
 
                 return Rethinkdb.dbCreate(pthinkInternals.db).run(this.conn, (err, result) => {
 
-                    Console.info('      testOne result: ' + err + ' ' + result);
+                    // Console.info('      testOne result: ' + err + ' ' + result);
                     return callback(err, '     success: ' + result, next);
                 });
             }

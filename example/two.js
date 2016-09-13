@@ -2,12 +2,10 @@
 
 // const Path = require('path');
 
-const Console = require('better-console');
+// const Console = require('better-console');
 const Rethinkdb = require('rethinkdb');
 
 exports.register = (plugin, options, pthinkInternals) => {
-
-    console.log('       register.attributes *****: ' + this.register.attributes.database);
 
     plugin.request([
         {
@@ -15,11 +13,11 @@ exports.register = (plugin, options, pthinkInternals) => {
             comment: 'goOne documentation here.',
             handler: function (param, next, callback) {
 
-                Console.info('       ##### goOne executed');
+                // Console.info('       ##### goOne executed');
 
                 Rethinkdb.dbCreate(pthinkInternals.db).run(this.conn, (err, result) => {
 
-                    Console.info('      result: ' + err + ' ' + result);
+                    // Console.info('      result: ' + err + ' ' + result);
                     return callback(err, '     success: ' + result, next);
                 });
             }
@@ -29,7 +27,7 @@ exports.register = (plugin, options, pthinkInternals) => {
             comment: 'goTwo documentation here.',
             handler: function (param, next, callback) {
 
-                console.log('       hurray!!! testTwo executed: ' + param);
+                // console.log('       hurray!!! testTwo executed: ' + param);
                 return callback(null, param, next);
             }
         }
