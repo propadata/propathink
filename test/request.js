@@ -89,7 +89,7 @@ describe('propathink.request', () => {
 
         return pthinkInternals.tools.One.testOne('hello test', rethink.next, (err, result, next) => {
 
-            console.log('       ***** tracker mock Fs.appendFile error: callback result err:' + err + ' result: ' + result);
+            // console.log('       ***** tracker mock Fs.appendFile error: callback result err:' + err + ' result: ' + result);
             expect(err).to.equal(null);
             return done(next());
         });
@@ -103,7 +103,7 @@ describe('propathink.request', () => {
 
         return pthinkInternals.tools.One.testOne('hello test', rethink.next, (err, result, next) => {
 
-            console.log('       ***** track mocker passes callback result err:' + err + ' result: ' + result);
+            // console.log('       ***** track mocker passes callback result err:' + err + ' result: ' + result);
             expect(err).to.equal(null);
             return done(next());
         });

@@ -31,7 +31,7 @@ describe('this.requests.One', () => {
 
             if (err)  {
 
-                console.log('       ***** callback result err:' + err + ' result: ' + result);
+                // console.log('       ***** callback result err:' + err + ' result: ' + result);
 
                 // must set err in next() to exit
                 // request lifecycle with error message.
@@ -59,7 +59,7 @@ describe('this.requests.One', () => {
 
             if (err)  {
 
-                console.log('       ***** callback result err:' + err + ' result: ' + result);
+                // console.log('       ***** callback result err:' + err + ' result: ' + result);
 
                 // must set err in next() to exit
                 // request lifecycle with error message.
@@ -67,7 +67,7 @@ describe('this.requests.One', () => {
                 return done(next(err));
             }
 
-            console.log('       ***** callback result err:' + err + ' result: ' + result);
+            // console.log('       ***** callback result err:' + err + ' result: ' + result);
             return done(next());
         });
     });

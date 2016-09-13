@@ -16,7 +16,7 @@ exports.register = (plugin, options, pthinkInternals) => {
 
                 // console.log('       testOne executed: ' + param);
                 // Console.info('       ##### tool.testOne executed');
-                console.log('       hurray!!! 1this.conn ' + Object.keys(this.conn));
+                // console.log('       hurray!!! 1this.conn ' + Object.keys(this.conn));
                 return callback(null, 'tool.testOne result', next);
 
             }
@@ -26,7 +26,7 @@ exports.register = (plugin, options, pthinkInternals) => {
             comment: 'testTwo documentation here.',
             handler: function (param, next, callback) {
 
-                console.log('       hurray!!! tools.testTwo executed: ' + param);
+                // console.log('       hurray!!! tools.testTwo executed: ' + param);
                 return callback(null, 'test two result', next);
             }
         }

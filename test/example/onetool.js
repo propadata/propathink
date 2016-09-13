@@ -33,7 +33,7 @@ describe('tool.One', () => {
 
             if (err)  {
 
-                console.log('       ***** callback result err:' + err + ' result: ' + result);
+                // console.log('       ***** callback result err:' + err + ' result: ' + result);
 
                 // must set err in next() to exit
                 // request lifecycle.
@@ -41,7 +41,7 @@ describe('tool.One', () => {
                 return done(next(err));
             }
 
-            console.log('       ***** callback result err:' + err + ' result: ' + result);
+            // console.log('       ***** callback result err:' + err + ' result: ' + result);
             return done(next());
         });
     });
@@ -57,12 +57,13 @@ describe('tool.One', () => {
 
         const pthinkInternals = rethink.getInternals();
 
-        console.log(Object.keys(pthinkInternals.tools));
-        console.log(Object.keys(pthinkInternals.foundation));
+        // console.log(Object.keys(pthinkInternals.tools));
+        // console.log(Object.keys(pthinkInternals.foundation));
 
         return pthinkInternals.tools.One.testOne('hello test', rethink.next, (err, result, next) => {
 
-            console.log('       ***** pthinkInteranls.tools.One callback result err:' + err + ' result: ' + result);
+            expect(err).to.equal(null);
+            // console.log('       ***** pthinkInteranls.tools.One callback result err:' + err + ' result: ' + result);
             return done(next());
         });
 
