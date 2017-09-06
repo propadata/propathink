@@ -29,8 +29,8 @@
     "npm": ">= 3.x"
   },
   "devDependencies": {
-    "code": "3.x.x",
-    "lab": "11.x.x"
+    "code": "4.x.x",
+    "lab": "14.x.x"
   },
   "dependencies": {
     "better-console": "^0.2.4",
