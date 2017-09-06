@@ -18,3 +18,4 @@ test/fixtures/awesomeLog
 .vagrant/
 docs
 logs/tracker.txt
+package-lock.json
